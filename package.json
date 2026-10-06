@@ -11,7 +11,7 @@
     "test:debug": "npx playwright test --debug",
     "test:master-data": "npx playwright test tests/master-data/",
     "test:transactions": "npx playwright test tests/transactions/",
-    "test:e2e": "npx playwright test tests/e2e-flows/",
+    "test:e2e": "npx playwright test tests/e2e/",
     "test:supplier": "npx playwright test tests/master-data/supplier.spec.ts",
     "test:item": "npx playwright test tests/master-data/item.spec.ts",
     "test:po": "npx playwright test tests/transactions/purchase-order.spec.ts",
