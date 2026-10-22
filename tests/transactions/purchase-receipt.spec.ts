@@ -7,6 +7,7 @@ import { createSupplierData } from '../../src/data/factories/supplier.factory';
 import { createItemData } from '../../src/data/factories/item.factory';
 import { createPurchaseReceiptData } from '../../src/data/factories/purchase-receipt.factory';
 import { createPurchaseOrderData } from '../../src/data/factories/purchase-order.factory';
+import { futureDate } from '../../src/data/utils/date.utils';
 
 test.describe('Purchase Receipt', () => {
   let prForm: PurchaseReceiptFormPage;
@@ -95,7 +96,7 @@ test.describe('Purchase Receipt', () => {
         item_code: testItemCode,
         qty: '5',
         rate: '200',
-        schedule_date: new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0],
+        schedule_date: futureDate(14),
       }],
     });
 

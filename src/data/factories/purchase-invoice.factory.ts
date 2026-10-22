@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import type { PurchaseInvoiceData, ItemRow } from '../types/doctype.types';
+import { futureDate } from '../utils/date.utils';
 
 export function createPurchaseInvoiceData(
   supplierName: string,
@@ -9,7 +10,7 @@ export function createPurchaseInvoiceData(
   return {
     supplier: supplierName,
     billNo: `BILL-${faker.string.alphanumeric(6).toUpperCase()}`,
-    billDate: new Date().toISOString().split('T')[0],
+    billDate: futureDate(0),
     items: itemCodes.map((code): ItemRow => ({
       item_code: code,
       qty: String(faker.number.int({ min: 1, max: 20 })),

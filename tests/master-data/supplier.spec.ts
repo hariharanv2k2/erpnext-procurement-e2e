@@ -61,7 +61,7 @@ test.describe('Supplier Master Data', () => {
     await supplierForm.expectSaved();
 
     // Update supplier type
-    await supplierForm.selectField(SUPPLIER_FIELDS.supplierType, 'Individual');
+    await supplierForm.setFieldValue(SUPPLIER_FIELDS.supplierType, 'Individual');
     await supplierForm.save();
 
     const updatedType = await supplierForm.getSupplierType();

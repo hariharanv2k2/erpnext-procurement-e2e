@@ -62,9 +62,8 @@ erpnext-procurement-e2e/
 │   │   ├── types/         # TypeScript type definitions
 │   │   └── utils/         # Date utilities
 │   ├── fixtures/          # Playwright fixtures & auth setup
-│   ├── helpers/           # Frappe UI helper, form field helper
 │   ├── pages/
-│   │   └── base/          # Base page classes (ErpFormPage, ErpListPage, ErpDialogPage)
+│   │   ├── base.page.ts   # Base classes (ErpFormPage, ErpListPage)
 │   │   └── *.page.ts      # Page objects for each doctype
 │   └── selectors/         # Centralized DOM selectors
 ├── tests/
@@ -77,7 +76,7 @@ erpnext-procurement-e2e/
 
 ## Architecture
 
-- **Page Object Model** — Base classes (`ErpFormPage`, `ErpListPage`, `ErpDialogPage`) handle common Frappe form operations (save, submit, cancel, amend)
+- **Page Object Model** — Base classes (`ErpFormPage`, `ErpListPage`) handle common Frappe form operations (save, submit, cancel, amend)
 - **Centralized Selectors** — All DOM selectors in `src/selectors/` — no hardcoded selectors in pages or tests
 - **Data Factories** — Faker.js generates unique test data for each run
 - **Auth via storageState** — Login once, reuse session across all tests

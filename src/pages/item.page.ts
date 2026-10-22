@@ -1,35 +1,22 @@
 import type { Page } from '@playwright/test';
-import { ErpFormPage } from './base/erp-form.page';
-import { ErpListPage } from './base/erp-list.page';
+import { ErpFormPage, ErpListPage } from './base.page';
 import { ITEM_FIELDS } from '../selectors/item.selectors';
 import type { ItemData } from '../data/types/doctype.types';
 
 export class ItemFormPage extends ErpFormPage {
-  constructor(page: Page) {
-    super(page, 'Item');
-  }
+  constructor(page: Page) { super(page, 'item'); }
 
   async fillItemForm(data: ItemData): Promise<void> {
-    await this.fillField(ITEM_FIELDS.itemCode, data.itemCode);
-    await this.fillLinkField(ITEM_FIELDS.itemGroup, data.itemGroup);
-    await this.fillLinkField(ITEM_FIELDS.stockUom, data.stockUom);
+    await this.fillInputField(ITEM_FIELDS.itemCode, data.itemCode);
+    await this.setFieldValue(ITEM_FIELDS.itemGroup, data.itemGroup);
+    await this.setFieldValue(ITEM_FIELDS.stockUom, data.stockUom);
   }
 
-  async getItemCode(): Promise<string> {
-    return await this.getFieldValue(ITEM_FIELDS.itemCode);
-  }
-
-  async getItemName(): Promise<string> {
-    return await this.getFieldValue(ITEM_FIELDS.itemName);
-  }
-
-  async getItemGroup(): Promise<string> {
-    return await this.getFieldValue(ITEM_FIELDS.itemGroup);
-  }
+  async getItemCode() { return this.getFieldValue(ITEM_FIELDS.itemCode); }
+  async getItemName() { return this.getFieldValue(ITEM_FIELDS.itemName); }
+  async getItemGroup() { return this.getFieldValue(ITEM_FIELDS.itemGroup); }
 }
 
 export class ItemListPage extends ErpListPage {
-  constructor(page: Page) {
-    super(page, 'Item');
-  }
+  constructor(page: Page) { super(page, 'item'); }
 }
